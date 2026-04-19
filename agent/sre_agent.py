@@ -9,18 +9,18 @@ class ResolveSREAgent:
         self.remediation_history = []
 
     def execute_closed_loop(self, incident_data):
-        print(f"🚀 {self.agent_name}: Initiating Closed-Loop Remediation for {incident_data.get('incident_id')}...")
+        print(f"[START] {self.agent_name}: Initiating Closed-Loop Remediation for {incident_data.get('incident_id')}...")
         
-        # 1. 🔍 Diagnosis
+        # 1. [ANALYSIS] Diagnosis
         issue = incident_data.get("issue_type")
-        print(f"🔍 Step 1: Diagnosing {issue}...")
+        print(f"[ANALYSIS] Step 1: Diagnosing {issue}...")
         
-        # 2. 🛠️ Remediation (Mock)
-        print(f"🛠️ Step 2: Executing automated fix for {issue}...")
+        # 2. [SETUP] Remediation (Mock)
+        print(f"[SETUP] Step 2: Executing automated fix for {issue}...")
         success_remediation = True # Simulation
         
-        # 3. ✅ Verification (The "Closed-Loop" Edge)
-        print(f"✅ Step 3: Verifying system health post-fix...")
+        # 3. [SUCCESS] Verification (The "Closed-Loop" Edge)
+        print(f"[SUCCESS] Step 3: Verifying system health post-fix...")
         time.sleep(1) # Simulating check
         success_verification = True # Simulation
         
@@ -38,7 +38,7 @@ class ResolveSREAgent:
             "timestamp": datetime.now().isoformat()
         }
 
-        print(f"🤖 AGENT REASONING: Incident {status}. Loop closed.")
+        print(f"[AI] AGENT REASONING: Incident {status}. Loop closed.")
         return report
 
 if __name__ == "__main__":
@@ -49,4 +49,4 @@ if __name__ == "__main__":
         "issue_type": "Missing S3 Production Bucket"
     }
     final_report = agent.execute_closed_loop(mock_incident)
-    print(f"✅ Final SRE Report: {json.dumps(final_report, indent=2)}")
+    print(f"[SUCCESS] Final SRE Report: {json.dumps(final_report, indent=2)}")
